@@ -1,6 +1,7 @@
 package storage
 
 import (
+	"github.com/Jamshidbek1608/temp-service/storage/postgres"
 	"github.com/Jamshidbek1608/temp-service/storage/repo"
 	"github.com/jmoiron/sqlx"
 )

@@ -18,6 +18,10 @@ func ConnectToDB(cfg config.Config) (*sqlx.DB, error) {
 	)
 
 	// connDB, err := sqlx.Connect("postgres", psqlString)
-	connDB, err := sqlx.Connect()
+	connDB, err := sqlx.Connect("postgres", psqlString)
+	if err != nil {
+		return nil, err
+	}
+	return connDB, nil
 
 }
