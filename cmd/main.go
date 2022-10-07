@@ -1,9 +1,10 @@
 package main
 
 import (
-	"temp-service/pkg/logger"
+	"github.com/Jamshidbek1608/temp-service/pkg/db"
+	"github.com/Jamshidbek1608/temp-service/pkg/logger"
 
-	"temp-service/config"
+	"github.com/Jamshidbek1608/temp-service/config"
 )
 
 func main() {
@@ -14,7 +15,12 @@ func main() {
 
 	log.Info("main: sqlxConfig",
 		logger.String("host", cfg.PostgresHost),
-		logger.Int("port", cfg.PostgresPort),
+		logger.Int("port", cfg.PostgresPost),
 		logger.String("database", cfg.PostgresDatabase))
+
+	connDB, err := db.ConnectToDB(cfg)
+	if err != nil {
+		log.Fatal("sqlx connection to postgres error", logger.Error(err))
+	}
 
 }

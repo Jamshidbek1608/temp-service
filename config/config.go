@@ -9,7 +9,7 @@ import (
 type Config struct {
 	Enviroment        string
 	PostgresHost      string
-	PostgresPost      int
+	PostgresPort      int
 	PostgresDatabase  string
 	PostgresUser      string
 	PostgresPassword  string
@@ -25,7 +25,7 @@ func Load() Config {
 	c.Enviroment = cast.ToString(getOReturnDefault("ENVIRONMENT", "develop"))
 
 	c.PostgresHost = cast.ToString(getOReturnDefault("POSTGRES_HOST", "localhost"))
-	c.PostgresPost = cast.ToInt(getOReturnDefault("POSTGRES_PORT", 5432))
+	c.PostgresPort = cast.ToInt(getOReturnDefault("POSTGRES_PORT", 5432))
 	c.PostgresDatabase = cast.ToString(getOReturnDefault("POSTGRES_DATABASE", "userdb"))
 	c.PostgresUser = cast.ToString(getOReturnDefault("POSTGRES_USER", "postgres"))
 	c.PostgresPassword = cast.ToString(getOReturnDefault("POSTGRES_PASSWORD", 123))
